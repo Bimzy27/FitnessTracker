@@ -1,13 +1,20 @@
-<script>
+<script setup>
+import { useActiveViewStore } from '@/stores/activeView';
+
+const store = useActiveViewStore();
+
+function handleButtonClick(view) {
+  store.setActiveView(view)
+}
 </script>
 
 <template>
     <div class="header-panel">
         <label>Fitness Tracker</label>
         <div class="header-buttons-div">
-            <button>Profile</button>
-            <button>Excersizes</button>
-            <button>Workouts</button>
+          <button @click="handleButtonClick('profile')">Profile</button>
+          <button @click="handleButtonClick('workouts')">Workouts</button>
+          <button @click="handleButtonClick('exercises')">Exercises</button>
         </div>
     </div>
 </template>

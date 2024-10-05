@@ -1,15 +1,18 @@
 <script setup>
-import { ref } from 'vue'
 import HeaderContainer from './components/HeaderContainer.vue'
+import Profile from './views/Profile.vue'
+import Exercises from './views/Exercises.vue'
+import Workouts from './views/Workouts.vue'
+import { useActiveViewStore } from '@/stores/activeView';
 
-const name = ref('Branden')
+const store = useActiveViewStore();
 </script>
 
 <template>
   <HeaderContainer/>
-  <div>
-    <label>Name: {{name}}</label>
-  </div>
+  <Profile v-if="store.activeView === 'profile'"/>
+  <Exercises v-if="store.activeView === 'exercises'"/>
+  <Workouts v-if="store.activeView === 'workouts'"/>
 </template>
 
 <style scoped>
