@@ -31,6 +31,11 @@ const workoutService = {
             id: 0,
             name: "Bench Press",
             workoutType: WorkoutType.WEIGHT_BEARING
+        },
+        {
+            id: 1,
+            name: "Incline Bench Press",
+            workoutType: WorkoutType.WEIGHT_BEARING
         }
     ])
 }

@@ -13,10 +13,4 @@ const store = useWorkoutsStore();
 </template>
 
 <style scoped>
-.view-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 </style>

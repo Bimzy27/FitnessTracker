@@ -1,11 +1,11 @@
-export interface workout
+export interface Workout
 {
     id: number
     date: Date
     setIds: number[]
 }
 
-export interface set
+export interface Set
 {
     id: number
     reps: number
