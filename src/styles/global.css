@@ -5,4 +5,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 5px;
+  }
+
+.div-stacked-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+label {
+    font-size: 14px;
+    color: #333;
+    font-weight: normal;
+    margin-bottom: 5px;
   }

@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts" setup>
 import { useActiveViewStore } from '@/stores/activeView';
 
 const store = useActiveViewStore();
@@ -11,7 +11,7 @@ function handleButtonClick(view) {
 <template>
     <div class="header-panel">
         <label>Fitness Tracker</label>
-        <div class="header-buttons-div">
+        <div class="div-stacked-horizontal">
           <button @click="handleButtonClick('profile')">Profile</button>
           <button @click="handleButtonClick('workouts')">Workouts</button>
           <button @click="handleButtonClick('exercises')">Exercises</button>
@@ -31,10 +31,5 @@ function handleButtonClick(view) {
   position: fixed;
   top: 0;
   left: 0;
-}
-
-.header-buttons-div {
-  display: flex;
-  flex-direction: row;
 }
 </style>
