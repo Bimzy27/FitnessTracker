@@ -59,6 +59,12 @@ const workoutService = {
             weight: 40
         },
     ]),
+
+    addExerciseSet(exerciseInstanceId: number): Set
+    {
+        const set: Set = {id: 1, reps: 10}
+        return set;
+    }
 }
 
 export default workoutService;
