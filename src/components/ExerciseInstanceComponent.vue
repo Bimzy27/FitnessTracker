@@ -8,7 +8,7 @@ const props = defineProps({
 })
 
 const exerciseInstance = workoutService.getExerciseInstance(props.exerciseInstanceId!);
-const exercise = workoutService.exercises.value.find((e)=>e.id === exerciseInstance?.exerciseId);
+const exercise = workoutService.getExercise(exerciseInstance?.exerciseId);
 if (!exerciseInstance)
 {
     console.error("Exercise instance not found for id: ", props.exerciseInstanceId);
@@ -16,9 +16,7 @@ if (!exerciseInstance)
 
 function removeSet()
 {
-    const newId = workoutService.sets.value.reduce((acc, set) => Math.max(acc, set.id), 0) + 1;
-    workoutService.sets.value.push({id: newId, reps: 10});
-    exerciseInstance?.setIds.push(newId);
+    workoutService.removeExerciseSet(props.exerciseInstanceId!, exerciseInstance.setIds[exerciseInstance.setIds.length - 1]);
 }
 
 function addSet()

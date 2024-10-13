@@ -3,7 +3,7 @@ import { useActiveViewStore } from '@/stores/activeView';
 
 const store = useActiveViewStore();
 
-function handleButtonClick(view) {
+function handleButtonClick(view:string) {
   store.setActiveView(view)
 }
 </script>

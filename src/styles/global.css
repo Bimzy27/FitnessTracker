@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-  }
+}
 
 .div-stacked-horizontal {
     display: flex;
@@ -14,11 +14,15 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-  }
+}
 
 label {
     font-size: 14px;
-    color: #333;
+    color: red;
     font-weight: normal;
     margin-bottom: 5px;
-  }
+}
+
+body {
+    background-color: teal;
+}
