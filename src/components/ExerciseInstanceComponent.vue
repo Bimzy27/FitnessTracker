@@ -1,6 +1,19 @@
+<template>
+    <q-item>
+        <q-item>Exercise: {{ exercise?.name }}</q-item>
+        <q-btn rounded @click="removeSet()" color="primary" icon="remove"/>
+        <q-list :separator="true">
+            <q-item v-for="setId in exerciseInstance?.setIds" :key="setId">
+            <SetComponent :setId="setId"/>
+        </q-item>
+        </q-list>
+        <q-btn rounded @click="addSet()" color="primary" icon="add"/>
+    </q-item>
+</template>
+
 <script lang="ts" setup>
 import SetComponent from './SetComponent.vue';
-import workoutService from '@/services/workoutService';
+import workoutService from 'src/services/workoutService';
 import { type PropType } from 'vue';
 
 const props = defineProps({
@@ -11,7 +24,7 @@ const exerciseInstance = workoutService.getExerciseInstance(props.exerciseInstan
 const exercise = workoutService.getExercise(exerciseInstance?.exerciseId);
 if (!exerciseInstance)
 {
-    console.error("Exercise instance not found for id: ", props.exerciseInstanceId);
+    console.error('Exercise instance not found for id: ', props.exerciseInstanceId);
 }
 
 function removeSet()
@@ -24,17 +37,3 @@ function addSet()
     workoutService.addExerciseSet(props.exerciseInstanceId!);
 }
 </script>
-
-<template>
-    <div class="div-stacked-horizontal" style="background-color:aquamarine; border-radius: 5px;">
-        <label>Exercise: {{ exercise?.name }}</label>
-        <button @click="removeSet()">-</button>
-        <div v-for="setId in exerciseInstance?.setIds" :key="setId">
-            <SetComponent :setId="setId"/>
-        </div>
-        <button @click="addSet()">+</button>
-    </div>
-</template>
-
-<style>
-</style>

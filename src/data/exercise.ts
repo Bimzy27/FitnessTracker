@@ -7,6 +7,6 @@ export interface Exercise
 
 export enum WorkoutType
 {
-    WEIGHT_BEARING = "Weight Bearing",
-    CARDIO = "Cardio",
+    WEIGHT_BEARING = 'Weight Bearing',
+    CARDIO = 'Cardio',
 }
