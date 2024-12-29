@@ -3,12 +3,12 @@
     <div class="row">Exercises</div>
     <div class="row">
       <q-list
-        :padding="true"
         :separator="true"
+        :bordered="true"
         v-for="exercise in exercises"
         :key="exercise.id"
       >
-        <div class="column">
+        <q-item>
           {{ exercise.name }}<br />
           {{ exercise.workoutType }}
           <q-btn
@@ -18,11 +18,23 @@
             size="xs"
             @click="editExercise(exercise)"
           />
-        </div>
+        </q-item>
       </q-list>
+    </div>
+    <div class="row">
+      <q-btn
+        rounded
+        color="primary"
+        icon="add"
+        size="md"
+        @click="addingExercise = true"
+      />
     </div>
     <q-dialog v-model="edittingExercise" persistent>
       <EditExercisePopup :exercise="selectedExercise" />
+    </q-dialog>
+    <q-dialog v-model="addingExercise" persistent>
+      <AddExercisePopup />
     </q-dialog>
   </q-page>
 </template>
@@ -32,9 +44,12 @@ import EditExercisePopup from 'src/popups/EditExercisePopup.vue';
 import { Exercise, WorkoutType } from 'src/data/exercise';
 import workoutService from 'src/services/workoutService';
 import { ref } from 'vue';
+import AddExercisePopup from 'src/popups/AddExercisePopup.vue';
 
 const exercises = workoutService.exercises;
 const edittingExercise = ref(false);
+const addingExercise = ref(false);
+
 const selectedExercise = ref({
   id: -1,
   name: 'None',

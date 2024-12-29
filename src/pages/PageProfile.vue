@@ -1,8 +1,8 @@
 <template>
-  <q-page class="flex flex-center">
-    Profile<br />
-    Total Workouts: {{ totalWorkouts }}
-  </q-page>
+    <q-page class="flex flex-center">
+        Profile<br />
+        Total Workouts: {{ totalWorkouts }}
+    </q-page>
 </template>
 
 <script setup lang="ts">

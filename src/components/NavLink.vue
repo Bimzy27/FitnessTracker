@@ -1,14 +1,6 @@
 <template>
-  <q-item
-    clickable
-    class="text-white"
-    tag="a"
-    :to="link"
-  >
-    <q-item-section
-      v-if="icon"
-      avatar
-    >
+  <q-item clickable class="text-white" tag="a" :to="link">
+    <q-item-section v-if="icon" avatar>
       <q-icon :name="icon" />
     </q-item-section>
 
@@ -21,7 +13,7 @@
 
 <script setup lang="ts">
 defineOptions({
-  name: 'NavLink'
+  name: 'NavLink',
 });
 
 export interface NavLinkProps {
@@ -29,7 +21,7 @@ export interface NavLinkProps {
   caption?: string;
   link?: string;
   icon?: string;
-};
+}
 
 withDefaults(defineProps<NavLinkProps>(), {
   caption: '',
